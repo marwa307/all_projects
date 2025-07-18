@@ -1,0 +1,50 @@
+
+<!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.js"></script>
+
+<!-- PAGE assets/plugins -->
+<!-- jQuery Mapael -->
+<script src="assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="assets/plugins/raphael/raphael.min.js"></script>
+<script src="assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="assets/plugins/chart.js/Chart.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="assets/dist/js/pages/dashboard2.js"></script>
+<script>
+  fetch("get_new_members.php")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("new-members").textContent = data;
+    })
+    .catch(error => {
+      console.error("Error fetching new members:", error);
+      document.getElementById("new-members").textContent = "Error";
+    });
+</script>
+
+</body>
+</html>
+</body>
