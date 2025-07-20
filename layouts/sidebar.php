@@ -1,3 +1,8 @@
+ <?php
+session_start(); // لو مش مفعّل قبل كده
+$role = $_SESSION['user']['role'] ?? null; // جلب صلاحية المستخدم من الجلسة
+?>
+ 
  <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
@@ -184,28 +189,36 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+               <?php
+$role = $_SESSION['user']['role'];
+?>
+
+<?php if ($role == "user") { ?>
+  <li class="nav-item">
+    <a href="./index.html" class="nav-link active">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Dashboard v1</p>
+    </a>
+  </li>
+<?php } ?>
+
+<?php if ($role == "admin") { ?>
+  <li class="nav-item">
+    <a href="./index2.html" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Dashboard v2</p>
+    </a>
+  </li>
+<?php } ?>
+
+<?php if ($role == "viewer") { ?>
+  <li class="nav-item">
+    <a href="./index3.html" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Dashboard v3</p>
+    </a>
+  </li>
+<?php } ?>
             </ul>
           </li>
           <li class="nav-item">
